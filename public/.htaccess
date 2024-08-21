@@ -1,0 +1,10 @@
+# Turn on the rewrite engine
+RewriteEngine On
+
+# Set the base directory to the public folder
+RewriteBase /
+
+# Redirect all requests to index.php, except for actual files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public\index.php [QSA,L]
