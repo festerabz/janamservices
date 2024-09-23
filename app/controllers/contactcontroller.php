@@ -1,32 +1,22 @@
 <?php
-require_once 'config\database.php';
-require_once 'app\models\contact.php';
+include_once  'C:\xampp\htdocs\janam services\config\database.php';
+include_once  'C:\xampp\htdocs\janam services\app\models\contact.php';
 
-class ContactController {
-    private $db;
-    private $contact;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $database = new Database();
+    $db = $database->getConnection();
 
-    public function __construct() {
-        $database = new Database();
-        $this->db = $database->getConnection();
-        $this->contact = new Contact($this->db);
-    }
+    $contact = new Contact($db);
+    $contact->full_name = $_POST['full_name'];
+    $contact->email_address = $_POST['email_address'];
+    $contact->phone_number = $_POST['phone_number'];
+    $contact->service_requested = $_POST['service_requested'];
+    $contact->message = $_POST['message'];
 
-    public function submitContactForm() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $this->contact->name = $_POST['name'];
-            $this->contact->email = $_POST['email'];
-            $this->contact->phone = $_POST['phone'];
-            $this->contact->service = $_POST['service'];
-            $this->contact->message = $_POST['message'];
-
-            if ($this->contact->save()) {
-                include 'app\views\contact\success_view.php';
-            } else {
-                include 'app\views\contact\error_view.php';
-            }
-        } else {
-            include 'app\views\contact\contact_view.php';
-        }
+    if ($contact->save()) {
+        header("Location: /janam services/app/views/contact/success_view.php");;
+    } else {
+        header("Location: /janam services/app/views/contact/error_view.php");
     }
 }
+?>

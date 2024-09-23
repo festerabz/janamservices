@@ -1,13 +1,12 @@
 <?php
 class Contact {
     private $conn;
-    private $table_name = "contacts";
+    private $table_name = "enquiries";
 
-    public $id;
-    public $name;
-    public $email;
-    public $phone;
-    public $service;
+    public $full_name;
+    public $email_address;
+    public $phone_number;
+    public $service_requested;
     public $message;
 
     public function __construct($db) {
@@ -15,26 +14,22 @@ class Contact {
     }
 
     public function save() {
-        $query = "INSERT INTO " . $this->table_name . " SET name=:name, email=:email, phone=:phone, service=:service, message=:message";
+        $query = "INSERT INTO " . $this->table_name . " SET 
+            full_name=:full_name, 
+            email_address=:email_address, 
+            phone_number=:phone_number, 
+            service_requested=:service_requested, 
+            message=:message";
+        
         $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->phone = htmlspecialchars(strip_tags($this->phone));
-        $this->service = htmlspecialchars(strip_tags($this->service));
-        $this->message = htmlspecialchars(strip_tags($this->message));
+        $stmt->bindParam(":full_name", htmlspecialchars(strip_tags($this->full_name)));
+        $stmt->bindParam(":email_address", htmlspecialchars(strip_tags($this->email_address)));
+        $stmt->bindParam(":phone_number", htmlspecialchars(strip_tags($this->phone_number)));
+        $stmt->bindParam(":service_requested", htmlspecialchars(strip_tags($this->service_requested)));
+        $stmt->bindParam(":message", htmlspecialchars(strip_tags($this->message)));
 
-        // Bind data
-        $stmt->bindParam(":name", $this->name);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":phone", $this->phone);
-        $stmt->bindParam(":service", $this->service);
-        $stmt->bindParam(":message", $this->message);
-
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
+        return $stmt->execute();
     }
 }
+?>
