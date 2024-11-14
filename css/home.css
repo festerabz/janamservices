@@ -572,23 +572,7 @@ font-family: 'Times New Roman', Times, serif;
         padding: 10px;
         text-align: center;
     }
-
-    .affliates {
-        flex-direction: column; /* Stack images vertically */
-        align-items: center;
-        gap: 15px; /* Space between images */
-    }
-
-    .affliates img {
-        width: 80%; /* Make images responsive */
-        height: auto;
-        max-width: 200px; /* Limit max width to avoid oversized images */
-    }
-
-    .affliates img:first-child {
-        margin-top: 10px; /* Add spacing for the first image */
-    }
-
+    
     .footer-container {
         text-align: center;
     }
