@@ -492,22 +492,183 @@ font-family: 'Times New Roman', Times, serif;
     animation: rotateIn 1s ease-in-out;
 }
 
-/* For small devices (phones) */
+/* Small Devices (Phones) */
 @media only screen and (max-width: 600px) {
-    /* Styles for phones */
-  }
-  
-  /* For medium devices (tablets) */
-  @media only screen and (min-width: 601px) and (max-width: 768px) {
-    /* Styles for tablets */
-  }
-  
-  /* For larger devices (desktops, TVs) */
-  @media only screen and (min-width: 769px) {
-    /* Styles for desktops */
-  }
-  
+    .top-bar {
+        flex-direction: column;
+        padding: 5px;
+        text-align: center;
+    }
 
+    .contact-info span {
+        margin-left: 0;
+        display: block;
+        margin-bottom: 5px;
+    }
 
+    .main-nav {
+        flex-direction: column;
+    }
 
+    .logo img {
+        width: 200px; /* Scales down the logo */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .contact-button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .background-image {
+        height: 300px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+    }
+
+    .service-images {
+        grid-template-columns: 1fr;
+    }
+
+    .cont-image, .cont-image2 {
+        text-align: center;
+    }
+
+    .cont-image #image1 {
+        width: 100%;
+        margin: 0;
+    }
+
+    .services h1 {
+        font-size: 2rem;
+    }
+
+    .container-of-service {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .boxservice {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .affliations {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .affliates {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center;
+        gap: 15px; /* Space between images */
+    }
+
+    .affliates img {
+        width: 80%; /* Make images responsive */
+        height: auto;
+        max-width: 200px; /* Limit max width to avoid oversized images */
+    }
+
+    .affliates img:first-child {
+        margin-top: 10px; /* Add spacing for the first image */
+    }
+
+    .footer-container {
+        text-align: center;
+    }
+
+    .footer-logo img {
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        margin-left: 0;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .top-bar {
+        padding: 10px 20px;
+    }
+
+    .contact-button {
+        width: auto;
+        margin-left: 20px;
+    }
+
+    .background-image {
+        height: 400px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 3.5rem;
+    }
+
+    .service-images {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .container-of-service {
+        margin-left: 50px;
+    }
+
+    .boxservice {
+        width: calc(50% - 10px);
+    }
+
+    .footer-content {
+        margin-left: 50px;
+    }
+}
+
+/* Large Devices (Desktops, TVs) */
+@media only screen and (min-width: 769px) {
+    .top-bar {
+        padding: 10px 70px;
+    }
+
+    .background-image {
+        height: 500px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 4.5rem;
+    }
+
+    .service-images {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+
+}
 
