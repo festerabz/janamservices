@@ -288,4 +288,20 @@ strong {
   @media only screen and (min-width: 769px) {
     /* Styles for desktops */
   }
-  
+
+  .warning-notification {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-family:  'Times New Roman', serif;
+    font-size: 18px;
+}
+.warning-notification i {
+    margin-right: 10px;
+    color: #d9534f; /* Red color for the icon */
+    font-size:x-large;
+}
